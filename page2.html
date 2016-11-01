@@ -6,45 +6,102 @@
 	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-	<div class="filter">
-		<div id="filter_title">Filters</div>
-		<div id="filter_data">
-			Filter1
-			<select >
-				<option value="v1">Value 1</option>
-				<option value="v2">Value 2</option>
-				<option value="v3">Value 3</option>2
-			</select>
-			Filter2
-			<input type="text" name="">
-			<img id="calendar" src="img/calendar.png">
-		</div>
-	</div>
-	<div id="header_wrap">
-		<div id="header">
+	<div id="header">
+		<div id="header_wrap">
 			<div class="logo"><img src="img/logo.png" id="logo"></div>
 			<div class="title">Text Analytics Dashboard</div>
 			<div class="menu">
 				<ul>
 					<a href="page1.html"><li>OVERALL ANALYSIS</li></a>
 					<a href="#"><li>ZOOMABLE TREEMAP</li></a>
-					<a href="page2.html"><li id="active">DETAILED ANALYSIS</li></a>
+					<a href="page2.html"><li  id="active">DETAILED ANALYSIS</li></a>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div id="wrapper">
-		<div class="selector">
-			Categories:
-			<select>
-				<option value="v1">Value 1</option>
-				<option value="v2">Value 2</option>
-				<option value="v3">Value 3</option>2
-			</select>
-			<img id="cross" src="img/cross.png">
+		<div class="filter">
+			<div id="filter_title">Filters</div>
+			<div id="filter_data">
+				Filter1
+				<select >
+					<option value="v1">Value 1</option>
+					<option value="v2">Value 2</option>
+					<option value="v3">Value 3</option>
+				</select>
+				Filter2
+				<input type="text" name="">
+				<img id="calendar" src="img/calendar.png">
+			</div>
 		</div>
-		<div class="name">Category and Sentiment Analysis</div>
-		<img src="img/chart3.png" id="chart3">
+		<div id="content_wrap">
+			<div class="selector">
+				Categories:
+				<select id='categories_select'>
+					<option value="v1">Value 1</option>
+					<option value="v2">Value 2</option>
+					<option value="v3">Value 3</option>
+				</select>
+				<img id="cross" src="img/cross.png">
+			</div>
+			<div class="name">Category and Sentiment Analysis</div>
+			<div id="chart">
+				<div id="chart_type">
+					Chart type:
+					<select>
+						<option value="v1">Value 1</option>
+						<option value="v2">Value 2</option>
+						<option value="v3">Value 3</option>
+					</select>
+				</div>
+				<div id="row_num">
+					Show N rows:
+					<select>
+						<option value="v1">Value 1</option>
+						<option value="v2">Value 2</option>
+						<option value="v3">Value 3</option>
+					</select>
+				</div>
+				<div id="distrib">
+					Distribution:
+					<select>
+						<option value="v1">Value 1</option>
+						<option value="v2">Value 2</option>
+						<option value="v3">Value 3</option>
+					</select>
+				</div>
+				<div id="table">
+					<table>
+					  <tr>
+					    <th>Categories</th>
+					    <th>Total</th>
+					    <th>Negative</th>
+					    <th>Positive</th>
+					    <th>Chart</th>
+					  </tr>
+					  <tr>
+					    <td>Staff</td>
+					    <td>12807</td>
+					    <td>-1192</td>
+					    <td>10011</td>
+					    <td id="table_chart">
+					    	<span id="negative"></span>
+					    	<span id="positive"></span>
+					    </td>
+					  </tr>
+					  <tr>
+					    <td>Experience</td><td>11612</td>
+					    <td>-1118</td>
+					    <td>9786</td>
+					    <td id="table_chart">
+					    	<span id="negative"></span>
+					    	<span id="positive"></span>
+					    </td>
+					  </tr>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
