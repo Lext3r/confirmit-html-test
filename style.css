@@ -1,0 +1,144 @@
+body{
+	margin: 0px;
+	background-color: #eeeeee;
+	width: 100%;
+}
+#wrapper, #header {
+	margin: 0 auto;
+	width:1200px;
+}
+
+#header_wrap{
+		height: 80px;
+		background-color: #2f2f2f;
+}
+#content{
+		margin: 0 auto;
+	    width:1200px;
+}
+#header {
+	color: white;
+	white-space: nowrap;
+}
+.menu, .title, .logo{
+	display: inline-block;
+	vertical-align: middle;
+   	height: 80px;
+}
+
+#logo{
+	height: 80px;
+}
+.title{
+	line-height: 80px;
+	width: 300px;
+	font-size:26px;
+}
+.menu{
+	width: 750px;
+	background-color: #2f2f2f;
+}
+
+.menu ul{
+	float: right;
+	padding: 0px;
+	margin: 0px;
+	height: 80px;
+	list-style-type: none;
+}
+
+.menu li {
+	text-align: center;
+	margin-top: 50px;
+	width: 180px;
+	height: 30px;
+   	float: left;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+	line-height:30px;
+
+}
+.menu a{
+	text-decoration: none;
+	color: white;
+}
+.menu #active{
+	background-color:#e3e3e3;
+	color:black;
+}
+.filter{
+	position: absolute;
+	top:200px;
+	width: 140px;
+}
+.filter select{
+	margin: 10px 0;
+	width: 110px;
+}
+input[type=text]{
+	width: 90px;
+	margin: 10px 0px 10px 0px;
+}
+#filter_title{
+	padding-left: 10px;
+	font-weight: bold;
+	height: 50px;
+	line-height: 50px;
+	background-color: #2f2f2f;
+	color: white;
+	border-top-right-radius: 10px;
+	box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75); 
+}
+#filter_data{
+	border-bottom-right-radius: 10px;
+	box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75); 
+	background-color: white;
+	padding-left: 10px;
+	padding-top: 10px; 
+}
+.selector{
+	width: 150px;
+	height: 50px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 30px 0;
+	padding:10px 60px 10px 10px;
+}
+.selector select{
+	margin-top: 10px;
+	width:150px;
+}
+#cross{
+	position: relative;
+	left: 155px;
+	top:-20px;
+	width: 10px;
+}
+#calendar{
+	position: relative;
+	top: 5px;
+	width: 20px;
+}
+.name{
+	font-weight: bold;
+	height: 50px;
+	margin-bottom: 30px;
+	line-height: 50px;
+	background-color: #2f2f2f;
+	color: white;
+	text-align: center;
+	border-radius: 10px;
+}
+.charts img{
+	width: 587px;
+	margin-bottom: 20px;
+	border-radius: 20px;
+	box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
+}
+
+.charts .right{
+	margin-left: 20px;
+}
+#chart3{
+	width: 100%;
+}
