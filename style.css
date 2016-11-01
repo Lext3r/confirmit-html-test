@@ -196,10 +196,12 @@ td:nth-child(1){
 	position: absolute;
 }
 #positive{
+	height: 20px;
 	background-color: #8bc34a;
 	display: inline-block;
 }
 #negative{
+	height: 20px;
 	background-color: #ff5722;
 	display: inline-block;
 }

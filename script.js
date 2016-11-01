@@ -10,15 +10,11 @@ window.onload = function(){
 		let rows = document.getElementsByTagName('tr');
 		for (let i = 1; i < rows.length ; i++){
 			data[i] = rows[i].innerText.trim().split('\t');
-			data[i]['positive'] = data[i][3] / data[1][1];
-			data[i]['negative'] = Math.abs(data[i][2] / data[1][1]);
-			console.log(data[i]['positive']);
-			console.log(data[i]['negative']);
+			let positive = (((data[i][3] / data[1][1]))*100).toFixed(2);
+			let negative = (Math.abs(data[i][2] / data[1][1])*100).toFixed(2);
+			rows[i].children[4].children[1].style.width = positive + "%";
+			rows[i].children[4].children[0].style.width = negative + "%";
 		}
-
-		//counting
-
-		//draw
 	}
 	f();
 }
