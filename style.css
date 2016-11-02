@@ -9,14 +9,15 @@ body{
 	width:1200px;
 }
 #header {
-		height: 80px;
-		background-color: #2f2f2f;
+	background-color: #2f2f2f;
+	height: 80px;		
 }
 #header_wrap{
-		color: white;
-		white-space: nowrap;
+	color: white;
+	white-space: nowrap;
 }
 .menu, .title, .logo{
+	background-color: #2f2f2f;
 	display: inline-block;
 	vertical-align: middle;
    	height: 80px;
@@ -27,37 +28,27 @@ body{
 }
 .title{
 	line-height: 80px;
-	width: 300px;
+	min-width: 250px;
 	font-size:22px;
 }
 .menu{
-	width: 750px;
-	background-color: #2f2f2f;
-}
-
-.menu ul{
-	float: right;
-	padding: 0px;
-	margin: 0px;
-	height: 80px;
-	list-style-type: none;
-}
-
-.menu li {
-	text-align: center;
-	margin-top: 50px;
-	width: 180px;
-	height: 30px;
-	font-size: 14px; 
-   	float: left;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-	line-height:30px;
-
+	width: 800px;
 }
 .menu a{
+	display: inline-block;
+	height: 30px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+	line-height: 30px;
+	padding: 0px 15px;
+	font-size: 14px;
 	text-decoration: none;
 	color: white;
+}
+.menu nav{
+	margin-top: 50px;
+	height: 30px;
+	float: right;
 }
 .menu #active{
 	background-color:#e3e3e3;
@@ -165,14 +156,14 @@ body{
 	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
 }
 
-table {
+#table {
 	margin:20px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 1160px;
 }
 
-td, th {
+#table td, th {
     border: 2px solid white;
     border-bottom: 2px solid #eeeeee;
     text-align: left;
@@ -189,19 +180,22 @@ th:nth-child(1){
 th:nth-child(5){
 	width: 550px;
 }
-td:nth-child(1){
+#table td:nth-child(1){
 	text-decoration: underline;
 }
-#table-chart{
-	position: absolute;
-}
-#positive{
-	height: 20px;
-	background-color: #8bc34a;
+#table_chart div{
 	display: inline-block;
 }
-#negative{
-	height: 20px;
+.positive{
+	height: 15px;
+	background-color: #8bc34a;
+	outline: 3px solid #8bc34a;
+	display: inline-block;
+}
+.negative{
+	height: 15px;
+	float: right;
 	background-color: #ff5722;
+	outline: 3px solid #ff5722;
 	display: inline-block;
 }
