@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
+	<title></title>
 </head>
 <body>
-	<div id="header">
-		<div id="header_wrap">
-			<div class="logo"><img src="img/logo.png" id="logo"></div>
-			<div class="title">Text Analytics Dashboard</div>
-			<div class="menu">
-				<nav>
-					<a href="page1.html">OVERALL ANALYSIS</li></a>
-					<a href="#">ZOOMABLE TREEMAP</a>
-					<a href="page2.html" id="active">DETAILED ANALYSIS</a>
-				</nav>
-			</div>
-		</div>
+  <div class="header">
+  	<div class="head_wrap">
+		<div class="logo"><img src="img/logo.png"></div>
+		<div class="title">Text Analytics Dashboard</div>
+		<ul class="nav_menu">
+			<li><a href="page1.html">OVERALL ANALYSIS</a></li>
+			<li><a href="#">ZOOMABLE TREEMAP</a></li>
+			<li><a href="page2.html" id="active" href="#">DETAILED ANALYSIS</a></li>
+		</ul>
 	</div>
-	<div id="wrapper">
+  </div>
+  <div class="container">
+  	<div class="flex_main">
+		<div class="selector">
+			<span>Categories:</span>
+			<select id='categories_select'>
+				<option value="v1">Value 1</option>
+				<option value="v2">Value 2</option>
+				<option value="v3">Value 3</option>
+			</select>
+			<img id="cross" src="img/cross.png">
+		</div>
 		<div class="filter">
 			<div id="filter_title">Filters</div>
 			<div id="filter_data">
-				Filter1
+				<span>Filter1</span>
 				<select >
 					<option value="v1">Value 1</option>
 					<option value="v2">Value 2</option>
 					<option value="v3">Value 3</option>
 				</select>
-				Filter2
+				<span>Filter2</span>
 				<input type="text" name="">
 				<img id="calendar" src="img/calendar.png">
 			</div>
 		</div>
-		<div id="content_wrap">
-			<div class="selector">
-				Categories:
-				<select id='categories_select'>
-					<option value="v1">Value 1</option>
-					<option value="v2">Value 2</option>
-					<option value="v3">Value 3</option>
-				</select>
-				<img id="cross" src="img/cross.png">
-			</div>
-			<div class="name">Category and Sentiment Analysis</div>
-			<div id="chart">
+		<div class="name">
+			Category and Sentiment Analysis
+		</div>
+		<div id="chart">
 				<div id="chart_type">
 					Chart type:
 					<select>
@@ -112,7 +112,7 @@
 					</table>
 				</div>
 			</div>
-		</div>
 	</div>
+  </div>
 </body>
 </html>
