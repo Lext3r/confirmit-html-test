@@ -4,14 +4,14 @@ body{
   margin: 0;
 }
 .header{
-  min-width: 540px;
+  min-width: 360px;
   display: flex;
   justify-content: center;
   background-color: #2f2f2f;
 
 }
 .container{
-  min-width: 540px;
+  min-width: 360px;
   display: flex;
   justify-content: center;
   display: -ms-flexbox;
@@ -296,4 +296,14 @@ th:nth-child(5){
   #filter_title, #filter_data{
     border-radius: 0px;
   }
+}
+
+@media screen and (max-width:600px){
+	.nav_menu a{
+		font-size: 2.5vw;
+	}
+	.nav_menu{
+		min-width:360px;
+	}
+		
 }
