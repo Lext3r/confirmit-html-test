@@ -18,7 +18,7 @@ window.onload = function(){
 
 	drawChart = function(data){
 		let negative_width = (Math.abs(data[0][2] / data[0][1] * 100)).toFixed(2);
-		let positive_width = 99 - negative_width;
+		let positive_width = 90 - negative_width;
 		for(let i = 0; i < data.length; i++){
 			document.getElementsByClassName('chart_left')[i].style.width = negative_width + "%";
 			document.getElementsByClassName('chart_right')[i].style.width = positive_width + "%";
