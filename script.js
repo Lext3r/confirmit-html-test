@@ -6,28 +6,31 @@ window.onload = function(){
 	}
 
 	var getData = function(){
-		let data = [];
-		let rows = document.getElementsByTagName('tr');
-		for (let i = 1; i < rows.length ; i++){
-			data[i-1] = rows[i].innerText.trim().split('\t');
+		var data = [];
+		var rows = document.getElementsByTagName('tr');
+		for (var i = 1; i < rows.length ; i++){
+			var values = [];
+			for(var j = 1; j < 4; j++){
+				values.push(rows[i].cells[j].innerHTML);
+			}
+			data.push(values);
 		}
 		return data;
 	}
 
-	let data = getData();
+	var data = getData();
 
 	drawChart = function(data){
-		let negative_width = (Math.abs(data[0][2] / data[0][1] * 100)).toFixed(2);
-		let positive_width = 90 - negative_width;
-		for(let i = 0; i < data.length; i++){
+		var negative_width = (Math.abs(data[0][1] / data[0][2] * 100)).toFixed(2);
+		var positive_width = 90 - negative_width;
+		for(var i = 0; i < data.length; i++){
 			document.getElementsByClassName('chart_left')[i].style.width = negative_width + "%";
 			document.getElementsByClassName('chart_right')[i].style.width = positive_width + "%";
-			let negative = (Math.abs(data[i][2] / data[0][2] * 100)).toFixed(2);
-			let positive = (Math.abs(data[i][3] / data[0][3] * 100)).toFixed(2);
+			var negative = (Math.abs(data[i][1] / data[0][1] * 100)).toFixed(2);
+			var positive = (Math.abs(data[i][2] / data[0][2] * 100)).toFixed(2);
 			document.getElementsByClassName('negative')[i].style.width = negative + "%";
 			document.getElementsByClassName('positive')[i].style.width = positive + "%";
 		}
-	}
-			
+	}	
 	drawChart(data);
 }

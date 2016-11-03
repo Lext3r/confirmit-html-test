@@ -4,19 +4,21 @@ body{
   margin: 0;
 }
 .header{
+  min-width: 540px;
   display: flex;
   justify-content: center;
   background-color: #2f2f2f;
 
 }
 .container{
+  min-width: 540px;
   display: flex;
   justify-content: center;
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
 }
 .flex_main{
   max-width: 1200px;
-  display: flex;
-  flex: 1;
   flex-flow: column wrap;
 }
 .head_wrap{
@@ -38,21 +40,18 @@ body{
 .logo img{
   height: 80px;
 }
-
-.nav_menu{
-  flex: 5;
-}
 .title{
   min-width: 291px;
   font-size: 1.5em;
 }
 .nav_menu{
-  width: 550px;
+  width: 50px;
   display: flex;
   padding: 0px 15px;
   margin: 0;
   list-style: none;
   justify-content: flex-end;
+  flex: 5;
   flex-flow: row nowrap;
 }
 .nav_menu li{
@@ -231,6 +230,7 @@ th:nth-child(5){
     position: static;
     width:100%;
     text-align: center;
+    margin-bottom: 30px;
   }
   .filter select{
     margin-right: 50px;
@@ -258,6 +258,7 @@ th:nth-child(5){
   	min-width: 300px;
   }
   .nav_menu{
+    min-width: 500px;
     justify-content: center;
     height: 30px;
   }
@@ -269,15 +270,15 @@ th:nth-child(5){
     margin: 0;
   }
   .selector{
-  	padding: 0;
-  	margin: 0;
+    padding: 10px 0px;
+    margin: 0;
     border-radius: 0px;
     min-width: 100%;
     text-align: center;
   }
   .charts img{
-    min-width:300px;
-    width: 60%;
+    min-width:500px;
+    width: 80%;
   }
   .charts, .charts .right{
     text-align: center;
@@ -285,6 +286,9 @@ th:nth-child(5){
   }
   #chart{
     border-radius: 0px; 
+  }
+  .filter{
+    margin: 0;
   }
   .filter select{
     margin: 0;
