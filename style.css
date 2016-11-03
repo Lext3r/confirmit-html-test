@@ -305,5 +305,12 @@ th:nth-child(5){
 	.nav_menu{
 		min-width:360px;
 	}
-		
+	#table td, th {
+	    border: 2px solid white;
+	    border-bottom: 2px solid #eeeeee;
+	    text-align: left;
+	    padding: 7px;
+	    font-size:12px;
+	    font-weight: bold;
+	}	
 }
