@@ -112,7 +112,7 @@ body{
 }
 
 .charts img{
-  width: 48%;
+  width: 47%;
   margin: 10px;
   border-radius: 20px;
   box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
@@ -225,11 +225,11 @@ th:nth-child(5){
   padding-top: 10px; 
 }
 
+
 @media screen and (max-width:1500px){
   .filter{
     position: static;
     width:100%;
-    margin:20px 0px;
     text-align: center;
   }
   .filter select{
@@ -246,6 +246,12 @@ th:nth-child(5){
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+  #filter1, #filter2{
+  width: 300px;
+  display: inline-block;
+  white-space: nowrap;
+  margin:10px 0px;
+ }
 }
 @media screen and (max-width:1000px){
   .logo{
@@ -270,7 +276,8 @@ th:nth-child(5){
     text-align: center;
   }
   .charts img{
-    width: 80%;
+    min-width:300px;
+    width: 60%;
   }
   .charts, .charts .right{
     text-align: center;
@@ -279,10 +286,10 @@ th:nth-child(5){
   #chart{
     border-radius: 0px; 
   }
-  .filter{
+  .filter select{
     margin: 0;
   }
   #filter_title, #filter_data{
-        border-radius: 0px;
+    border-radius: 0px;
   }
 }
