@@ -99,6 +99,13 @@ $(document).ready(function() {
         	labels:{
         		enabled: false
         	},
+        	stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'normal',
+                    color: 'black'
+                }
+            },
             min: 0,
             title: '',
             lineWidth: 1,
@@ -111,6 +118,21 @@ $(document).ready(function() {
             footerFormat: '</table>',
             shared: true,
             useHTML: true
+        },
+         plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,  
+                    style:{
+                    	fontWeight: 'normal'
+                    },
+                    formatter:function() {
+    					if(this.y != 0) {
+      					return this.y;
+    					}
+  					}
+                }
+            }
         },
         legend:{
         	symbolRadius: 0
