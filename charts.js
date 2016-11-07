@@ -17,7 +17,13 @@ $(document).ready(function() {
             }
         },
         xAxis: {
-            categories: ['Staff', 'Experience', 'Product', 'Store', 'Customer Service'],
+            categories: [
+            	'Staff', 
+            	'Experience',
+            	'Product', 
+            	'Store',
+            	'Customer Service'
+            	],
             tickLength: 0
         },
         yAxis: {
@@ -121,4 +127,121 @@ $(document).ready(function() {
 
         }]
     });
+
+    Highcharts.chart('chart3', {
+        chart: {
+            type: 'column',
+        },
+        title: {
+            text: 'Top Positive Mentions',
+            style:{
+            	fontWeight: 'bold'
+            }
+        },
+        xAxis: {
+            categories: [
+            	'Staff', 
+            	'Experience',
+            	'Product', 
+            	'Store',
+            	'Customer Service'
+            	],
+            tickLength: 0
+        },
+        yAxis: {
+        	labels:{
+        		enabled: false
+        	},
+        	stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'normal',
+                    color: 'black'
+                }
+            },
+        	title:'',
+            min: 0,
+            lineWidth: 1,
+            gridLineWidth: 0,
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,  
+                }
+            }
+        },
+        legend:{
+        	symbolRadius: 0
+        },
+        series: [{
+            name: 'Positive',
+            data: [10011, 9786, 3132, 3002, 2016],
+            color:'#8bc34a'
+        }]
+    });
+
+    Highcharts.chart('chart4', {
+        chart: {
+            type: 'column',
+        },
+        title: {
+            text: 'Top Negative Mentions',
+            style:{
+            	fontWeight: 'bold'
+            }
+        },
+        xAxis: {
+            categories: [
+            	'Staff', 
+            	'Experience',
+            	'Product', 
+            	'Store',
+            	'Customer Service'
+            	],
+            tickLength: 0
+        },
+        yAxis: {
+        	labels:{
+        		enabled: false
+        	},
+        	stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'normal',
+                    color: 'black'
+                }
+            },
+        	title:'',
+            min: 0,
+            lineWidth: 1,
+            gridLineWidth: 0,
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,  
+                }
+            }
+        },
+        legend:{
+        	symbolRadius: 0
+        },
+        series: [{
+            name: 'Negative',
+            data: [1192, 1118, 424, 603, 346],
+            color:'#ff5722'
+        }]
+    });
+
 }); 
