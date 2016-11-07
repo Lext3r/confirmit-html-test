@@ -282,7 +282,7 @@ th:nth-child(5){
     min-width: 100%;
     text-align: center;
   }
-  .charts div{
+  .charts > div{
     min-width:360px;
     margin-top: 20px; 
     width: 80%;
