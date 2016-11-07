@@ -200,8 +200,8 @@ $(document).ready(function() {
             categories: [
             	'Staff', 
             	'Experience',
-            	'Product', 
-            	'Store',
+            	'Store', 
+            	'Product',
             	'Customer Service'
             	],
             tickLength: 0
@@ -239,7 +239,7 @@ $(document).ready(function() {
         },
         series: [{
             name: 'Negative',
-            data: [1192, 1118, 424, 603, 346],
+            data: [1192, 1118, 603, 424, 346],
             color:'#ff5722'
         }]
     });
