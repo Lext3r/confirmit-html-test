@@ -18,7 +18,7 @@ body{
   -ms-flex-pack: center;
 }
 .flex_main{
-  max-width: 1200px;
+  width: 1200px;
   flex-flow: column wrap;
 }
 .head_wrap{
@@ -110,9 +110,15 @@ body{
   border-radius: 10px;
 }
 
-.charts img{
-  width: 47%;
-  margin: 10px;
+.charts{
+  margin-bottom: 20px; 
+}
+
+.charts div{
+  display:inline-block;
+  width: 49%;
+}
+.highcharts-container{
   border-radius: 20px;
   box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
 }
@@ -255,10 +261,10 @@ th:nth-child(5){
 }
 @media screen and (max-width:1000px){
   .logo{
-  	min-width: 300px;
+  	min-width: 360px;
   }
   .nav_menu{
-    min-width: 500px;
+    min-width: 360px;
     justify-content: center;
     height: 30px;
   }
@@ -276,8 +282,9 @@ th:nth-child(5){
     min-width: 100%;
     text-align: center;
   }
-  .charts img{
-    min-width:500px;
+  .charts div{
+    min-width:360px;
+    margin-top: 20px; 
     width: 80%;
   }
   .charts, .charts .right{
@@ -305,6 +312,13 @@ th:nth-child(5){
 	.nav_menu{
 		min-width:360px;
 	}
+  #filter_data{
+    box-shadow: none;
+  }
+  .highcharts-container{
+    border-radius: 0px;
+    box-shadow: none;
+}
 	#table td, th {
 	    border: 2px solid white;
 	    border-bottom: 2px solid #eeeeee;
