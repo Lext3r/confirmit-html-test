@@ -157,6 +157,9 @@ body{
     font-family: arial, sans-serif;
     border-collapse: collapse;
 }
+#table th{
+  text-transform: capitalize;
+}
 
 #table td, th {
     border: 2px solid white;
@@ -169,10 +172,10 @@ body{
 th{
   background-color: #eeeeee;
 }
-th:nth-child(1){
+th:first-child{
   width: 30%;
 }
-th:nth-child(5){
+th:last-child{
   width: 80%;
 }
 #table td:nth-child(1){

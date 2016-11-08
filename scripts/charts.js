@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$(function () { 
+	  sortByKey(data, 'total');
 	  Highcharts.chart('chart1', {
 	    chart: {
             type: 'column',
@@ -17,13 +18,7 @@ $(document).ready(function() {
             }
         },
         xAxis: {
-            categories: [
-            	'Staff', 
-            	'Experience',
-            	'Product', 
-            	'Store',
-            	'Customer Service'
-            	],
+            categories: getValuesByKey(data, 'category', 5),
             tickLength: 0
         },
         yAxis: {
@@ -61,15 +56,15 @@ $(document).ready(function() {
         },
         series: [{
             name: 'Negative',
-            data: [1192, 1118, 603, 424, 346],
+            data: getValuesByKey(data, 'negative', 5),
             color:'#ff5722'
         }, {
             name: 'Neutral',
-            data: [1604, 708, 1012, 629, 250],
+            data: getValuesByKey(data, 'neutral', 5),
             color: '#ffeb3b'
         }, {
             name: 'Positive',
-            data: [10011, 9786, 3002, 3132, 2016],
+            data: getValuesByKey(data, 'positive', 5),
             color: '#8bc34a'
         }]
     });
@@ -150,6 +145,7 @@ $(document).ready(function() {
         }]
     });
 
+	sortByKey(data, 'positive');
     Highcharts.chart('chart3', {
         chart: {
             type: 'column',
@@ -161,13 +157,7 @@ $(document).ready(function() {
             }
         },
         xAxis: {
-            categories: [
-            	'Staff', 
-            	'Experience',
-            	'Product', 
-            	'Store',
-            	'Customer Service'
-            	],
+            categories: getValuesByKey(data, 'category', 5),
             tickLength: 0
         },
         yAxis: {
@@ -203,11 +193,12 @@ $(document).ready(function() {
         },
         series: [{
             name: 'Positive',
-            data: [10011, 9786, 3132, 3002, 2016],
+            data: getValuesByKey(data, 'positive', 5),
             color:'#8bc34a'
         }]
     });
 
+    sortByKey(data, 'negative');
     Highcharts.chart('chart4', {
         chart: {
             type: 'column',
@@ -219,13 +210,7 @@ $(document).ready(function() {
             }
         },
         xAxis: {
-            categories: [
-            	'Staff', 
-            	'Experience',
-            	'Store', 
-            	'Product',
-            	'Customer Service'
-            	],
+            categories: getValuesByKey(data, 'category', 5),
             tickLength: 0
         },
         yAxis: {
@@ -261,7 +246,7 @@ $(document).ready(function() {
         },
         series: [{
             name: 'Negative',
-            data: [1192, 1118, 603, 424, 346],
+            data: getValuesByKey(data, 'negative', 5),
             color:'#ff5722'
         }]
     });

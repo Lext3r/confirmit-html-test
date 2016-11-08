@@ -3,7 +3,10 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
-	<script type="text/javascript" src="draw_chart.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="table.js"></script>
+	<script type="text/javascript" src="getData.js"></script>
+	<script type="text/javascript" src="page2.js"></script>
 	<title></title>
 </head>
 <body>
@@ -54,17 +57,17 @@
 				<div id="chart_type">
 					Chart type:
 					<select>
-						<option value="v1">Value 1</option>
-						<option value="v2">Value 2</option>
-						<option value="v3">Value 3</option>
+						<option value="positive">Sorted by Positive</option>
+						<option value="negative">Sorted by Negative</option>
+						<option value="total">Sorted by Total</option>
 					</select>
 				</div>
 				<div id="row_num">
 					Show N rows:
 					<select>
-						<option value="v1">Value 1</option>
-						<option value="v2">Value 2</option>
-						<option value="v3">Value 3</option>
+						<option value="3">Top 3</option>
+						<option value="5">Top 5</option>
+						<option value="10" selected>Top 10</option>
 					</select>
 				</div>
 				<div id="distrib">
@@ -76,45 +79,7 @@
 					</select>
 				</div>
 				<div id="table">
-					<table>
-					  <tr>
-					    <th>Categories</th>
-					    <th>Total</th>
-					    <th>Negative</th>
-					    <th>Positive</th>
-					    <th>Chart</th>
-					  </tr>
-					  <tr>
-					    <td>Staff</td>
-					    <td>12807</td>
-					    <td>-1192</td>
-					    <td>10011</td>
-					    <td id="table_chart">
-							<div class="chart_left"><div class="negative"></div></div>
-					    	<div class="chart_right"><div class="positive"></div></div>
-					    </td>
-					  </tr>
-					  <tr>
-					    <td>Experience</td>
-					    <td>11612</td>
-					    <td>-1118</td>
-					    <td>9786</td>
-					    <td id="table_chart">
-					    	<div class="chart_left"><div class="negative"></div></div>
-					    	<div class="chart_right"><div class="positive"></div></div>
-					    </td>
-					  </tr>
-					  <tr>
-					    <td>Policy</td>
-					    <td>1747</td>
-					    <td>-276</td>
-					    <td>984</td>
-					    <td id="table_chart">
-					    	<div class="chart_left"><div class="negative"></div></div>
-					    	<div class="chart_right"><div class="positive"></div></div>
-					    </td>
-					  </tr>
-					</table>
+					
 				</div>
 			</div>
 	</div>
