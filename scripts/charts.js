@@ -69,79 +69,42 @@ $(document).ready(function() {
         }]
     });
 	});
-
+	sortByKey(data, 'total').reverse();
 	Highcharts.chart('chart2', {
         chart: {
-            type: 'column',
+            type: 'line'
         },
         title: {
-            text: 'Top Trending',
-            style:{
-            	fontWeight: 'bold'
-            }
+            text: ''
         },
         xAxis: {
-            categories: [
-                'Look and feel',
-                'Store',
-                'Product',
-                'Experience',
-                'Services',
-            ],
-            tickLength: 0
+            categories: getValuesByKey(data, 'category')
         },
         yAxis: {
-        	labels:{
-        		enabled: false
-        	},
-        	stackLabels: {
-                enabled: true,
-                style: {
-                    fontWeight: 'normal',
-                    color: 'black'
-                }
-            },
-            min: 0,
-            title: '',
-            lineWidth: 1,
-            gridLineWidth: 0,
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y}</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-         plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true,  
-                    style:{
-                    	fontWeight: 'normal'
-                    },
-                    formatter:function() {
-    					if(this.y != 0) {
-      					return this.y;
-    					}
-  					}
-                }
+            title: {
+                text: ''
             }
         },
-        legend:{
-        	symbolRadius: 0
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
         },
         series: [{
-            name: 'Aug 2016',
-            data: [0, 1, 3, 3, 0],
-            color:'#00897b'
-
+            name: 'Positive',
+            data: getValuesByKey(data, 'positive'),
+            color:'#ff5722'
         }, {
-            name: 'Sep 2016',
-            data: [3, 2, 4, 4, 0],
-            color: '#333333'
-
+            name: 'Neutral',
+            data: getValuesByKey(data, 'negative'),
+            color: '#ffeb3b'
+        }, {
+            name: 'Negative',
+            data: getValuesByKey(data, 'neutral'),
+            color: '#8bc34a'
         }]
     });
 
