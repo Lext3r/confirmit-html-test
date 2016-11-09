@@ -19,7 +19,10 @@ function createTable(id, rowNum, colNum){
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d29a89f405ab4630ef9d598729cdf4352a27903e
 var max_negative, max_positive;
 
 function fillTable(id, keys, headers, num){
@@ -35,6 +38,7 @@ function fillTable(id, keys, headers, num){
             row.children[i].innerHTML = data[j-1][keys[i]];
             drawChart(j-1);
         }
+<<<<<<< HEAD
     }
     if (document.querySelector("#distrib select").value === 'percent'){
         fillPercentageTable();
@@ -48,6 +52,13 @@ function fillPercentageTable(){
          (table.rows[i].cells[2].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
         table.rows[i].cells[3].innerHTML =
          (table.rows[i].cells[3].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
+=======
+        var chart = row.lastChild;
+        chart.id = 'table_chart';
+        addDiv(addDiv(chart, 'chart_left'),'negative');
+        addDiv(addDiv(chart, 'chart_right'),'positive');
+        drawChart(i-1);
+>>>>>>> d29a89f405ab4630ef9d598729cdf4352a27903e
     }
 }
 
