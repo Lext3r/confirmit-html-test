@@ -24,10 +24,8 @@ function fillTable(id, keys, headers, num){
         }
         var chart = row.lastChild;
         chart.id = 'table_chart';
-        var left = addDiv(chart, 'chart_left');
-        var right = addDiv(chart, 'chart_right');
-        addDiv(left,'negative');
-        addDiv(right,'positive');
+        var left = addDiv(addDiv(left,'negative')t, 'chart_left');
+        var right = addDiv(addDiv(right,'positive'), 'chart_right');
         drawChart(i-1);
     }
 }
