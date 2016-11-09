@@ -16,8 +16,19 @@ window.onload = function(){
 	document.querySelector("#chart_type select").addEventListener("change", function(){
 		table.parentElement.removeChild(table);
 		sortByKey(data, this.value);
-		createTable('table', parseInt(rowNum), keys.length + 1);
+		createTable('table', rowNum, keys.length + 1);
 		fillTable('table', keys, headers, rowNum);
+	});
+
+	document.querySelector("#distrib select").addEventListener("change", function(){
+		if (this.value === 'counts'){
+			table.parentElement.removeChild(table);
+			createTable('table', rowNum, keys.length + 1);
+			fillTable('table', keys, headers, rowNum);
+		}
+		if (this.value === 'percent'){
+			fillPercentageTable();
+		}
 	});
 
 }

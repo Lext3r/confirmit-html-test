@@ -26,15 +26,28 @@ function fillTable(id, keys, headers, num){
     max_positive =  getMaxOfArray(getValuesByKey(data, 'positive', num - 1));
     max_negative = getMaxOfArray(getValuesByKey(data, 'negative', num - 1));
     row = table.getElementsByTagName('tr')[0];
-    for(j = 0; j < headers.length; j++){
+    for(var j = 0; j < headers.length; j++){
             row.children[j].innerHTML = headers[j];
         }
-    for (i = 1; i < num; i++){
-        var row = table.getElementsByTagName('tr')[i];
-        for(j = 0; j < keys.length; j++){
-            row.children[j].innerHTML = data[i-1][keys[j]];
+    for (var i = 0; i < headers.length - 1; i++){
+        for (var j = 1; j < num; j++ ){
+            var row = table.getElementsByTagName('tr')[j];
+            row.children[i].innerHTML = data[j-1][keys[i]];
+            drawChart(j-1);
         }
-        drawChart(i-1);
+    }
+    if (document.querySelector("#distrib select").value === 'percent'){
+        fillPercentageTable();
+    }
+}
+
+function fillPercentageTable(){
+    var table = document.getElementById('table').children[0];
+    for(var i = 1; i < table.rows.length; i++){
+        table.rows[i].cells[2].innerHTML =
+         (table.rows[i].cells[2].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
+        table.rows[i].cells[3].innerHTML =
+         (table.rows[i].cells[3].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
     }
 }
 
