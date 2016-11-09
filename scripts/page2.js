@@ -10,7 +10,7 @@ window.onload = function(){
 		table.parentElement.removeChild(table);
 		rowNum = parseInt(this.value) + 1;
 		createTable('table', rowNum, keys.length + 1);
-		fillTable('table', keys, headers, rowNum + 1);
+		fillTable('table', keys, headers, rowNum);
 	});
 
 	document.querySelector("#chart_type select").addEventListener("change", function(){
