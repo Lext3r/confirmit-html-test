@@ -35,7 +35,7 @@ function addHeaders(headers){
 
 function addRow(num, values){
 	var	row = document.createElement('tr');
-	row.className = "row" + num;
+	row.id = "row" + num;
 	for(var i = 0; i < values.length; i++){
 		var td = document.createElement('td');
 		td.innerHTML = values[i];
