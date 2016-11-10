@@ -1,3 +1,11 @@
+function getValuesByKeys(data, num, keys){
+	values = [];
+	for(var i = 0; i < keys.length; i++){
+		values.push(data[num][keys[i]]);
+	}
+	return values;
+}
+
 function getValuesByKey(data, key, num){
 	if (num === undefined) 
 		num = data.length;

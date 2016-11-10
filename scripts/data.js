@@ -11,7 +11,21 @@ var data = [
 		"total": 12807, 
 		"negative": 1192,
 		"neutral": 1604,
-		"positive": 10011
+		"positive": 10011,
+		"child":[{
+			"category": "Staff_1.1",
+			"total": 2807, 
+			"negative": 1192,
+			"neutral": 604,
+			"positive": 1011
+		},{
+			"category": "Staff_1.2",
+			"total": 2807, 
+			"negative": 192,
+			"neutral": 604,
+			"positive": 1011
+		}
+		]
 	},
 	{
 		"category": "Experience",

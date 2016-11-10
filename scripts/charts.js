@@ -69,42 +69,79 @@ $(document).ready(function() {
         }]
     });
 	});
-	sortByKey(data, 'total').reverse();
+
 	Highcharts.chart('chart2', {
         chart: {
-            type: 'line'
+            type: 'column',
         },
         title: {
-            text: ''
+            text: 'Top Trending',
+            style:{
+            	fontWeight: 'bold'
+            }
         },
         xAxis: {
-            categories: getValuesByKey(data, 'category')
+            categories: [
+                'Look and feel',
+                'Store',
+                'Product',
+                'Experience',
+                'Services',
+            ],
+            tickLength: 0
         },
         yAxis: {
-            title: {
-                text: ''
+        	labels:{
+        		enabled: false
+        	},
+        	stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'normal',
+                    color: 'black'
+                }
+            },
+            min: 0,
+            title: '',
+            lineWidth: 1,
+            gridLineWidth: 0,
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+         plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,  
+                    style:{
+                    	fontWeight: 'normal'
+                    },
+                    formatter:function() {
+    					if(this.y != 0) {
+      					return this.y;
+    					}
+  					}
+                }
             }
         },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
-            }
+        legend:{
+        	symbolRadius: 0
         },
         series: [{
-            name: 'Positive',
-            data: getValuesByKey(data, 'positive'),
-            color:'#ff5722'
+            name: 'Aug 2016',
+            data: [0, 1, 3, 3, 0],
+            color:'#00897b'
+
         }, {
-            name: 'Neutral',
-            data: getValuesByKey(data, 'negative'),
-            color: '#ffeb3b'
-        }, {
-            name: 'Negative',
-            data: getValuesByKey(data, 'neutral'),
-            color: '#8bc34a'
+            name: 'Sep 2016',
+            data: [3, 2, 4, 4, 0],
+            color: '#333333'
+
         }]
     });
 
