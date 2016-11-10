@@ -1,5 +1,6 @@
+"use strict";
 function getValuesByKeys(data, num, keys){
-	values = [];
+	var values = [];
 	for(var i = 0; i < keys.length; i++){
 		values.push(data[num][keys[i]]);
 	}

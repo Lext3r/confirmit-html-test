@@ -1,7 +1,8 @@
+"use strict";
 window.onload = function(){
 	var rowNum = parseInt(document.querySelector("#row_num select").value);
-	keys = ['category', 'total', 'negative','positive'];
-	headers = ["Categories", "Total", "Negative", "Positive", "Charts"];
+	var keys = ['category', 'total', 'negative','positive'];
+	var headers = ["Categories", "Total", "Negative", "Positive", "Charts"];
 	createTable('table', headers, keys, data, rowNum);
 
 	document.querySelector("#row_num select").addEventListener("change", function(){

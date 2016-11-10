@@ -1,3 +1,4 @@
+"use strict";
 function createTable(id, headers, keys, data, num){
 	var table = document.getElementById(id);
 	table.appendChild(addHeaders(headers));
@@ -8,7 +9,7 @@ function createTable(id, headers, keys, data, num){
 	}
 	sortByKey(data, document.querySelector("#chart_type select").value);
 	for(var i = 0; i < num; i++){
-		values = getValuesByKeys(data, i, keys);
+		var values = getValuesByKeys(data, i, keys);
 		table.appendChild(addRow(i, values));
 		drawChart(i, data);
 	}
@@ -24,7 +25,7 @@ function createSubTable(num){
 function addHeaders(headers){
 	var	row = document.createElement('tr');
 	row.className = "titles";
-	for(i = 0; i < headers.length; i++){
+	for(var i = 0; i < headers.length; i++){
 		var th = document.createElement('th');
 		th.innerHTML = headers[i];
 		row.appendChild(th);
@@ -35,12 +36,12 @@ function addHeaders(headers){
 function addRow(num, values){
 	var	row = document.createElement('tr');
 	row.className = "row" + num;
-	for(i = 0; i < values.length; i++){
+	for(var i = 0; i < values.length; i++){
 		var td = document.createElement('td');
 		td.innerHTML = values[i];
 		row.appendChild(td);
 	}
-	chart = row.appendChild(document.createElement('td'));
+	var chart = row.appendChild(document.createElement('td'));
 	addDiv(addDiv(chart, 'chart_left'),'negative');
     addDiv(addDiv(chart, 'chart_right'),'positive');
 	return row;
