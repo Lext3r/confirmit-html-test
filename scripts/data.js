@@ -4,7 +4,14 @@ var data = [
 		"total": 2612, 
 		"negative": 346,
 		"neutral": 250,
-		"positive": 2016
+		"positive": 2016,
+		"child": {
+			"category": "Customer Service 1.1",
+			"total": 1807, 
+			"negative": 192,
+			"neutral": 154,
+			"positive": 1411
+		}
 	},
 	{
 		"category": "Staff",
@@ -32,14 +39,41 @@ var data = [
 		"total": 11612, 
 		"negative": 1118,
 		"neutral": 708,
-		"positive": 9786
+		"positive": 9786,
+		"child":[{
+			"category": "Exp 1.1",
+			"total": 8507, 
+			"negative": 992,
+			"neutral": 454,
+			"positive": 8011
+		}]
 	},
 	{
 		"category": "Store",
 		"total": 4185, 
 		"negative": 424,
 		"neutral": 629,
-		"positive": 3132
+		"positive": 3132,
+		"child":[{
+			"category": "Store 1.1",
+			"total": 3507, 
+			"negative": 292,
+			"neutral": 454,
+			"positive": 2011
+		},{
+			"category": "Store 1.2",
+			"total": 685, 
+			"negative": 30,
+			"neutral": 20,
+			"positive": 567
+		},
+		{
+			"category": "Store 1.3",
+			"total": 385, 
+			"negative": 130,
+			"neutral": 220,
+			"positive": 567
+		}]
 	},{
 		"category": "Product",
 		"total": 4617, 
