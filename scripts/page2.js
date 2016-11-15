@@ -22,6 +22,16 @@ window.onload = function(){
 	createTable('table', headers, keys, data, rowNum);
 	subTables();
 
+	(function(){
+		var selector = document.querySelector('#categories_select');
+		for(var value of getValuesByKey(data, 'category')){
+			var option = document.createElement("option");
+			option.text = value;
+			option.value = value.toLowerCase();
+			selector.appendChild(option);
+		}
+	})();
+
 	document.querySelector("#row_num select").addEventListener("change", function(){
 		while(table.rows.length > 0) {
 			table.deleteRow(0);
@@ -51,6 +61,25 @@ window.onload = function(){
 		if (this.value === 'percent'){
 			fillPercentageTable();
 		}
+	});
+	document.getElementById("cross").addEventListener("click", function(){
+		document.querySelector('#categories_select').value = "empty";
+	})
+	document.querySelector('#categories_select').addEventListener("change", function(){
+		while(table.rows.length > 0) {
+			table.deleteRow(0);
+		}
+		var category = this.value;
+		if (this.value === "empty"){
+			createTable('table', headers, keys, data);
+		}
+		for(var obj of data){
+			if(category == obj["category"].toLowerCase()){
+				if (obj.child)
+					createTable('table', headers, keys, obj.child);
+			}
+		}
+		subTables();
 	});
 
 	

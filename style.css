@@ -335,6 +335,7 @@ th:last-child{
 	    padding: 7px;
 	    font-size:12px;
 	    font-weight: bold;
+      white-space: nowrap;
 	}	
   @media screen and (max-width:480px){
   .nav_menu{
