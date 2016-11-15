@@ -13,17 +13,17 @@ var data = [
 		"neutral": 1604,
 		"positive": 10011,
 		"child":[{
-			"category": "Staff_1.1",
-			"total": 2807, 
-			"negative": 1192,
-			"neutral": 604,
-			"positive": 1011
+			"category": "Staff 1.1",
+			"total": 9507, 
+			"negative": 792,
+			"neutral": 854,
+			"positive": 7011
 		},{
-			"category": "Staff_1.2",
-			"total": 2807, 
-			"negative": 192,
-			"neutral": 604,
-			"positive": 1011
+			"category": "Staff 1.2",
+			"total": 4685, 
+			"negative": 330,
+			"neutral": 204,
+			"positive": 3567
 		}
 		]
 	},
@@ -52,7 +52,21 @@ var data = [
 		"total": 1747, 
 		"negative": 276,
 		"neutral": 487,
-		"positive": 984
+		"positive": 984,
+		"child":[{
+			"category": "Policy 1.1",
+			"total": 807, 
+			"negative": 192,
+			"neutral": 264,
+			"positive": 611
+		},{
+			"category": "Policy 1.2",
+			"total": 643, 
+			"negative": 86,
+			"neutral": 204,
+			"positive": 385
+		}
+		]
 	},
 	{
 		"category": "Look and Feel",

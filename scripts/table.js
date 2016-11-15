@@ -11,23 +11,27 @@ function createTable(id, headers, keys, data, num){
 	for(var i = 0; i < num; i++){
 		var values = getValuesByKeys(data, i, keys);
 		table.appendChild(addRow(i, values));
-		drawChart(i, data);
+		if(data[i].child){
+			createSubTable(data[i].child, keys, i);
+		}
 	}
 	if (document.querySelector("#distrib select").value === 'percent'){
         fillPercentageTable();
     }
 }
 
-function createSubTable(num){
-	
+function createSubTable(data, keys, n){
+	for(var i = 0; i < data.length; i++){
+		table.appendChild(addRow((n + "ch" + i), getValuesByKeys(data, i, keys)));
+	}
 }
 
 function addHeaders(headers){
 	var	row = document.createElement('tr');
-	row.className = "titles";
-	for(var i = 0; i < headers.length; i++){
+	row.className = "table_header";
+	for(var el of headers){
 		var th = document.createElement('th');
-		th.innerHTML = headers[i];
+		th.innerHTML = el;
 		row.appendChild(th);
 	}
 	return row;
@@ -36,14 +40,15 @@ function addHeaders(headers){
 function addRow(num, values){
 	var	row = document.createElement('tr');
 	row.id = "row" + num;
-	for(var i = 0; i < values.length; i++){
+	for(var el of values){
 		var td = document.createElement('td');
-		td.innerHTML = values[i];
+		td.innerHTML = el;
 		row.appendChild(td);
 	}
 	var chart = row.appendChild(document.createElement('td'));
-	addDiv(addDiv(chart, 'chart_left'),'negative');
+	var a = addDiv(addDiv(chart, 'chart_left'),'negative');
     addDiv(addDiv(chart, 'chart_right'),'positive');
+    drawChart(row);
 	return row;
 }
 
@@ -61,9 +66,9 @@ function fillPercentageTable(){
     }
 }
 
-function addDiv(parent, elClass){
+function addDiv(parent, divClass){
        var div = document.createElement('div');
-       div.setAttribute("class", elClass);
+       div.setAttribute("class", divClass);
        return parent.appendChild(div);
 }
 
@@ -71,11 +76,12 @@ var max_positive, max_negative;
 var negative_width = (Math.abs(data[0]['negative'] / data[0]['total'] * 100)).toFixed(2);
 var positive_width = (Math.abs(data[0]['positive'] / data[0]['total'] * 100)).toFixed(2);
 
-function drawChart(i, data){
-    document.getElementsByClassName('chart_left')[i].style.width = negative_width + "%";
-    document.getElementsByClassName('chart_right')[i].style.width = positive_width + "%";
-    var negative = (Math.abs(data[i]['negative'] / max_negative * 100)).toFixed(2);
-    var positive = (Math.abs(data[i]['positive'] / max_positive * 100)).toFixed(2);
-    document.getElementsByClassName('negative')[i].style.width = negative + "%";
-    document.getElementsByClassName('positive')[i].style.width = positive + "%";
+function drawChart(row){
+
+    row.getElementsByClassName('chart_left')[0].style.width = negative_width + "%";
+    row.getElementsByClassName('chart_right')[0].style.width = positive_width + "%";
+    var negative = (Math.abs(row.children[2].innerHTML / max_negative * 100)).toFixed(2);
+    var positive = (Math.abs(row.children[3].innerHTML / max_positive * 100)).toFixed(2);
+    row.getElementsByClassName('negative')[0].style.width = negative + "%";
+    row.getElementsByClassName('positive')[0].style.width = positive + "%";
 }

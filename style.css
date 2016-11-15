@@ -10,6 +10,7 @@ body{
   background-color: #2f2f2f;
 
 }
+
 .container{
   min-width: 360px;
   display: flex;
@@ -228,6 +229,16 @@ th:last-child{
   background-color: white;
   padding-left: 10px;
   padding-top: 10px; 
+}
+#table tr[id*="ch"]{
+  display: none;
+}
+#table tr[id*="ch"] td{
+  font-size: 13px;
+}
+
+#table tr[id*="ch"] td:first-child{
+  padding-left: 20px;
 }
 
 
