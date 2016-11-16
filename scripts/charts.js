@@ -1,9 +1,9 @@
 "use strict";
 $(document).ready(function() {
-	$(function () { 
-	  sortByKey(data, 'total');
-	  Highcharts.chart('chart1', {
-	    chart: {
+    $(function () { 
+      sortByKey(data, 'total');
+      Highcharts.chart('chart1', {
+        chart: {
             type: 'column',
             events: {
             load: function(event) {     
@@ -15,7 +15,7 @@ $(document).ready(function() {
         title: {
             text: 'Top Themes',
             style:{
-            	fontWeight: 'bold'
+                fontWeight: 'bold'
             }
         },
         xAxis: {
@@ -23,10 +23,10 @@ $(document).ready(function() {
             tickLength: 0
         },
         yAxis: {
-        	labels:{
-        		enabled: false
-        	},
-        	title:'',
+            labels:{
+                enabled: false
+            },
+            title:'',
             min: 0,
             lineWidth: 1,
             gridLineWidth: 0,
@@ -48,9 +48,9 @@ $(document).ready(function() {
                     enabled: true,
                     allowOverlap:'true',
                     style: {
-	                    fontWeight: 'normal',
-	                    textShadow: 'none'
-	                },
+                        fontWeight: 'normal',
+                        textShadow: 'none'
+                    },
                     color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black'
                 }
             }
@@ -69,84 +69,47 @@ $(document).ready(function() {
             color: '#8bc34a'
         }]
     });
-	});
-
-	Highcharts.chart('chart2', {
+    });
+    sortByKey(data, 'total').reverse();
+    Highcharts.chart('chart2', {
         chart: {
-            type: 'column',
+            type: 'line'
         },
         title: {
-            text: 'Top Trending',
-            style:{
-            	fontWeight: 'bold'
-            }
+            text: ''
         },
         xAxis: {
-            categories: [
-                'Look and feel',
-                'Store',
-                'Product',
-                'Experience',
-                'Services',
-            ],
-            tickLength: 0
+            categories: getValuesByKey(data, 'category')
         },
         yAxis: {
-        	labels:{
-        		enabled: false
-        	},
-        	stackLabels: {
-                enabled: true,
-                style: {
-                    fontWeight: 'normal',
-                    color: 'black'
-                }
-            },
-            min: 0,
-            title: '',
-            lineWidth: 1,
-            gridLineWidth: 0,
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y}</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-         plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true,  
-                    style:{
-                    	fontWeight: 'normal'
-                    },
-                    formatter:function() {
-    					if(this.y != 0) {
-      					return this.y;
-    					}
-  					}
-                }
+            title: {
+                text: ''
             }
         },
-        legend:{
-        	symbolRadius: 0
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
         },
         series: [{
-            name: 'Aug 2016',
-            data: [0, 1, 3, 3, 0],
-            color:'#00897b'
-
+            name: 'Positive',
+            data: getValuesByKey(data, 'positive'),
+            color:'#ff5722'
         }, {
-            name: 'Sep 2016',
-            data: [3, 2, 4, 4, 0],
-            color: '#333333'
-
+            name: 'Neutral',
+            data: getValuesByKey(data, 'negative'),
+            color: '#ffeb3b'
+        }, {
+            name: 'Negative',
+            data: getValuesByKey(data, 'neutral'),
+            color: '#8bc34a'
         }]
     });
 
-	sortByKey(data, 'positive');
+    sortByKey(data, 'positive');
     Highcharts.chart('chart3', {
         chart: {
             type: 'column',
@@ -154,7 +117,7 @@ $(document).ready(function() {
         title: {
             text: 'Top Positive Mentions',
             style:{
-            	fontWeight: 'bold'
+                fontWeight: 'bold'
             }
         },
         xAxis: {
@@ -162,17 +125,17 @@ $(document).ready(function() {
             tickLength: 0
         },
         yAxis: {
-        	labels:{
-        		enabled: false
-        	},
-        	stackLabels: {
+            labels:{
+                enabled: false
+            },
+            stackLabels: {
                 enabled: true,
                 style: {
                     fontWeight: 'normal',
                     color: 'black'
                 }
             },
-        	title:'',
+            title:'',
             min: 0,
             lineWidth: 1,
             gridLineWidth: 0,
@@ -190,7 +153,7 @@ $(document).ready(function() {
             }
         },
         legend:{
-        	symbolRadius: 0
+            symbolRadius: 0
         },
         series: [{
             name: 'Positive',
@@ -207,7 +170,7 @@ $(document).ready(function() {
         title: {
             text: 'Top Negative Mentions',
             style:{
-            	fontWeight: 'bold'
+                fontWeight: 'bold'
             }
         },
         xAxis: {
@@ -215,17 +178,17 @@ $(document).ready(function() {
             tickLength: 0
         },
         yAxis: {
-        	labels:{
-        		enabled: false
-        	},
-        	stackLabels: {
+            labels:{
+                enabled: false
+            },
+            stackLabels: {
                 enabled: true,
                 style: {
                     fontWeight: 'normal',
                     color: 'black'
                 }
             },
-        	title:'',
+            title:'',
             min: 0,
             lineWidth: 1,
             gridLineWidth: 0,
@@ -243,7 +206,7 @@ $(document).ready(function() {
             }
         },
         legend:{
-        	symbolRadius: 0
+            symbolRadius: 0
         },
         series: [{
             name: 'Negative',
