@@ -5,13 +5,13 @@ var data = [
 		"negative": 346,
 		"neutral": 250,
 		"positive": 2016,
-		"child": {
+		"child": [{
 			"category": "Customer Service 1.1",
 			"total": 1807, 
 			"negative": 192,
 			"neutral": 154,
 			"positive": 1411
-		}
+		}]
 	},
 	{
 		"category": "Staff",
