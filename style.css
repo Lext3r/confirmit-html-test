@@ -99,6 +99,10 @@ body{
 #calendar{
   width: 20px;
 }
+.arrow{
+  width: 20px;
+  cursor: pointer;
+}
 
 .name{
   font-weight: bold;

@@ -1,10 +1,10 @@
 "use strict";
 window.onload = function(){
 	var subTables = function (){
-		for(var tr of document.querySelectorAll('#table tr td:first-child')){
+		for(var tr of document.querySelectorAll('.arrow')){
 			tr.addEventListener("click", function(event){
-				var id = event.target.parentNode.id;
-				for(var child of document.querySelectorAll("[id*=" + id + "ch]")){
+				var id = event.target.parentNode.parentNode.id;
+				for(var child of document.querySelectorAll("[id*=" + id + "_]")){
 					if (child.style.display == "table-row"){
 						child.style.display = "none";
 					}
@@ -81,6 +81,14 @@ window.onload = function(){
 		}
 		subTables();
 	});
+
+	document.querySelector('#row0 td:first-child').addEventListener("click", function(){
+		console.log(1);
+	});
+
+	document.querySelector('#row0 td:last-child').onclick = function(){
+		document.querySelector('#row0 td:first-child').click();
+	}
 
 	
 }

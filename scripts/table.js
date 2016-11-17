@@ -10,7 +10,12 @@ function createTable(id, headers, keys, data, num){
 	sortByKey(data, document.querySelector("#chart_type select").value);
 	for(var i = 0; i < num; i++){
 		var values = getValuesByKeys(data, i, keys);
-		table.appendChild(addRow(i, values));
+		var row = addRow(i, values);
+		console.log(data[i]);
+		if (data[i].child){
+			row.children[0].appendChild(addArrowImage());
+		}
+		table.appendChild(row);
 		if(data[i].child){
 			createSubTable(data[i].child, keys, i);
 		}
@@ -22,7 +27,8 @@ function createTable(id, headers, keys, data, num){
 
 function createSubTable(data, keys, n){
 	for(var i = 0; i < data.length; i++){
-		table.appendChild(addRow((n + "ch" + i), getValuesByKeys(data, i, keys)));
+		var row = addRow((n + "_" + i+"ch"), getValuesByKeys(data, i, keys));
+		table.appendChild(row);
 	}
 }
 
@@ -46,12 +52,18 @@ function addRow(num, values){
 		row.appendChild(td);
 	}
 	var chart = row.appendChild(document.createElement('td'));
-	var a = addDiv(addDiv(chart, 'chart_left'),'negative');
+	addDiv(addDiv(chart, 'chart_left'),'negative');
     addDiv(addDiv(chart, 'chart_right'),'positive');
     drawChart(row);
 	return row;
 }
 
+function addArrowImage(){
+	var img = document.createElement('img');
+    img.className = "arrow";
+    img.src = "./img/arrow.png";
+    return img;
+}
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
@@ -77,7 +89,6 @@ var negative_width = (Math.abs(data[0]['negative'] / data[0]['total'] * 100)).to
 var positive_width = (Math.abs(data[0]['positive'] / data[0]['total'] * 100)).toFixed(2);
 
 function drawChart(row){
-
     row.getElementsByClassName('chart_left')[0].style.width = negative_width + "%";
     row.getElementsByClassName('chart_right')[0].style.width = positive_width + "%";
     var negative = (Math.abs(row.children[2].innerHTML / max_negative * 100)).toFixed(2);
