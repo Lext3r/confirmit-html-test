@@ -1,35 +1,56 @@
 "use strict";
-function createTable(id, headers, keys, data, num){
+function createTable(id, headers, keys, data){
+	max_negative = getMaxOfArray(getValuesByKey(data, 'negative'));
+	max_positive =  getMaxOfArray(getValuesByKey(data, 'positive'));
 	var table = document.getElementById(id);
 	table.appendChild(addHeaders(headers));
-	max_negative = getMaxOfArray(getValuesByKey(data, 'negative', num));
-	max_positive =  getMaxOfArray(getValuesByKey(data, 'positive', num));
-	if (num === undefined){
-		num = data.length;
-	}
 	sortByKey(data, document.querySelector("#chart_type select").value);
-	for(var i = 0; i < num; i++){
-		var values = getValuesByKeys(data, i, keys);
-		var row = addRow(i, values);
-		console.log(data[i]);
-		if (data[i].child){
-			row.children[0].appendChild(addArrowImage());
-		}
-		table.appendChild(row);
-		if(data[i].child){
-			createSubTable(data[i].child, keys, i);
-		}
-	}
-	if (document.querySelector("#distrib select").value === 'percent'){
-        fillPercentageTable();
-    }
+	fillTable(table, data, keys);
+	addArrowHandlers();
+	showNRows(document.querySelector("#row_num select").value);
 }
 
-function createSubTable(data, keys, n){
-	for(var i = 0; i < data.length; i++){
-		var row = addRow((n + "_" + i+"ch"), getValuesByKeys(data, i, keys));
-		table.appendChild(row);
+
+function showNRows(rowNum){
+	var rows = document.querySelectorAll('table tr.main-category');
+	for (var i = 0; i < rowNum; i++){
+		rows[i].style.display = "table-row";
 	}
+	for(var i = rowNum; i < rows.length; i++){
+		rows[i].style.display = "none";
+	}
+}	
+
+
+function fillTable(table, data, keys){
+	for(var el of data){
+		addRow(table, el, keys);
+		if(el.child){
+			fillTable(table, el.child, keys);
+		}
+	}
+}
+
+function addRow(table, el, keys){
+	var categories = getValuesByKey(data, 'category').join(' ');
+	var row = document.createElement('tr');
+	row.appendChild(addTitle(el));
+	for(var name of keys){
+		var td = document.createElement('td');
+		td.innerText = el[name];
+		row.appendChild(td);
+	}
+	if(!categories.includes(el.category)){
+		row.style.display = "none";
+		row.className = "child";
+	} else {
+		row.className = "main-category";
+	}
+	if (el.child)
+		row.setAttribute('childs', el.child.length);
+	row.appendChild(addChart());
+	drawChart(row);
+	table.appendChild(row);
 }
 
 function addHeaders(headers){
@@ -43,45 +64,41 @@ function addHeaders(headers){
 	return row;
 }
 
-function addRow(num, values){
-	var	row = document.createElement('tr');
-	row.id = "row" + num;
-	for(var el of values){
-		var td = document.createElement('td');
-		td.innerHTML = el;
-		row.appendChild(td);
+function addTitle(el){
+	var td = document.createElement('td');
+	td.innerHTML = "<span>" + el.category + "</span>";
+	if (el.child){
+		td.appendChild(addArrowImage());
 	}
-	var chart = row.appendChild(document.createElement('td'));
-	addDiv(addDiv(chart, 'chart_left'),'negative');
-    addDiv(addDiv(chart, 'chart_right'),'positive');
-    drawChart(row);
-	return row;
+	return td;
 }
 
-function addArrowImage(){
-	var img = document.createElement('img');
-    img.className = "arrow";
-    img.src = "./img/arrow.png";
-    return img;
+function addChart(){
+	var td = document.createElement('td');
+	addDiv(addDiv(td, 'chart_left'), 'negative');
+	addDiv(addDiv(td, 'chart_right'), 'positive');
+	return td;
 }
+
+
+function addDiv(parent, divClass){
+       var div = document.createElement('div');
+       div.setAttribute("class", divClass);
+       return parent.appendChild(div);
+}
+
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
 
-function fillPercentageTable(){
-    var table = document.getElementById('table');
+function fillPercentageTable(id){
+    var table = document.getElementById(id);
     for(var i = 1; i < table.rows.length; i++){
         table.rows[i].cells[2].innerHTML =
          (table.rows[i].cells[2].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
         table.rows[i].cells[3].innerHTML =
          (table.rows[i].cells[3].innerHTML / table.rows[i].cells[1].innerHTML * 100).toFixed(0) + "%";
     }
-}
-
-function addDiv(parent, divClass){
-       var div = document.createElement('div');
-       div.setAttribute("class", divClass);
-       return parent.appendChild(div);
 }
 
 var max_positive, max_negative;
@@ -95,4 +112,35 @@ function drawChart(row){
     var positive = (Math.abs(row.children[3].innerHTML / max_positive * 100)).toFixed(2);
     row.getElementsByClassName('negative')[0].style.width = negative + "%";
     row.getElementsByClassName('positive')[0].style.width = positive + "%";
+}
+
+
+function addArrowImage(){
+	var img = document.createElement('img');
+    img.className = "arrow";
+    img.src = "./img/arrow.png";
+    return img;
+}
+
+function addArrowHandlers(){
+	for (var el of document.querySelectorAll(".arrow")){
+		el.onclick = function(){
+			var row = this.parentNode.parentNode;
+			hideSubTable(row, row.getAttribute('childs'));
+		};
+	};
+}
+
+function hideSubTable(row, childsNum){
+	for(var i = 0; i < childsNum; i++){
+		row = row.nextSibling;
+		if (row.style.display == "table-row"){
+			if(row.hasAttribute('childs') && row.nextSibling.style.display == "table-row"){
+				hideSubTable(row, row.getAttribute('childs'));
+			}
+			row.style.display = "none";
+		} else {
+			row.style.display = "table-row"
+		}
+	}
 }

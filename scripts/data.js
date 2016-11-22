@@ -72,7 +72,14 @@ var data = [
 			"total": 385, 
 			"negative": 130,
 			"neutral": 220,
+			"positive": 567,
+			"child": [{
+			"category": "Store 1.3.1",
+			"total": 385, 
+			"negative": 130,
+			"neutral": 220,
 			"positive": 567
+		}]
 		}]
 	},{
 		"category": "Product",
