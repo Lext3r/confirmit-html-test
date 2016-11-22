@@ -8,6 +8,11 @@ function createTable(id, headers, keys, data){
 	fillTable(table, data, keys);
 	addArrowHandlers();
 	showNRows(document.querySelector("#row_num select").value);
+	if(document.querySelector("#distrib select").value === 'percent'){
+		console.log(1);
+		fillPercentageTable(id);
+	}
+
 }
 
 
