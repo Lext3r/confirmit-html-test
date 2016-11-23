@@ -190,11 +190,13 @@ th:first-child{
 th:last-child{
   width: 80%;
 }
-table td:nth-child(1){
+table td:first-child span{
   text-decoration: underline;
+  cursor: pointer;
 }
 table td:last-child div{
   display: inline-block;
+  cursor: pointer;
 }
 .positive{
   height: 15px;
