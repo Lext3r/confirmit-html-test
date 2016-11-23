@@ -1,9 +1,9 @@
 "use strict";
+var inputData = data;
 window.onload = function(){
 		var headers = ["Categories", "Total", "Negative", "Positive", "Charts"];
 		var keys = ['total', 'negative','positive'];
 		createTable('table', headers, keys, data);
-
 		document.querySelector("#chart_type select").addEventListener("change", function(){
 			while(table.rows.length > 0) {
 				table.deleteRow(0);
@@ -27,12 +27,6 @@ window.onload = function(){
 				fillPercentageTable('table');
 			}
 		});
-
-
-
-	/*document.querySelector('#row0 td:last-child').onclick = function(){
-		document.querySelector('#row0 td:first-child').click();
-	}*/
 }
 
 function addEventHandlers(table){
