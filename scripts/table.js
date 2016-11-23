@@ -1,11 +1,13 @@
 "use strict";
-function createTable(id, headers, keys, data){
+function createTable(id, headers, keys){
+	var data = getCurrentCategory();
 	max_negative = getMaxOfArray(getValuesByKey(data, 'negative'));
 	max_positive =  getMaxOfArray(getValuesByKey(data, 'positive'));
 	var table = document.getElementById(id);
 	table.appendChild(addHeaders(headers));
 	sortByKey(data, document.querySelector("#chart_type select").value);
-	fillTable(table, data, keys);
+	var category = getValuesByKey(data, 'category').join(' ');
+	fillTable(table, data, keys, category);
 	addArrowHandlers();
 	addEventHandlers(table);
 	addChartsHandlers(table);
@@ -30,17 +32,16 @@ function showNRows(table, rowNum){
 }	
 
 
-function fillTable(table, data, keys){
+function fillTable(table, data, keys, category){
 	for(var el of data){
-		addRow(table, el, keys);
+		addRow(table, el, keys, category);
 		if(el.child){
-			fillTable(table, el.child, keys);
+			fillTable(table, el.child, keys, category);
 		}
 	}
 }
 
-function addRow(table, el, keys){
-	var categories = getValuesByKey(data, 'category').join(' ');
+function addRow(table, el, keys, categories){
 	var row = document.createElement('tr');
 	row.appendChild(addTitle(el));
 	for(var name of keys){
