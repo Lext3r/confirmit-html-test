@@ -7,7 +7,9 @@ function createTable(id, headers, keys, data){
 	sortByKey(data, document.querySelector("#chart_type select").value);
 	fillTable(table, data, keys);
 	addArrowHandlers();
-	showNRows(document.querySelector("#row_num select").value);
+	addEventHandlers(table);
+	addChartsHandlers(table);
+	showNRows(table, document.querySelector("#row_num select").value);
 	if(document.querySelector("#distrib select").value === 'percent'){
 		fillPercentageTable(id);
 	}
@@ -15,8 +17,10 @@ function createTable(id, headers, keys, data){
 }
 
 
-function showNRows(rowNum){
-	var rows = document.querySelectorAll('table tr.main-category');
+function showNRows(table, rowNum){
+	var rows = document.getElementById(table.id).querySelectorAll('tr.main-category');
+	if (rowNum > rows.length)
+		rowNum = rows.length;
 	for (var i = 0; i < rowNum; i++){
 		rows[i].style.display = "table-row";
 	}

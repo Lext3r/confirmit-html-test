@@ -1,10 +1,9 @@
 "use strict";
 window.onload = function(){
-
-	(function(){
 		var headers = ["Categories", "Total", "Negative", "Positive", "Charts"];
 		var keys = ['total', 'negative','positive'];
 		createTable('table', headers, keys, data);
+
 		document.querySelector("#chart_type select").addEventListener("change", function(){
 			while(table.rows.length > 0) {
 				table.deleteRow(0);
@@ -14,7 +13,7 @@ window.onload = function(){
 		});
 
 		document.querySelector("#row_num select").addEventListener("change", function(){
-			showNRows(this.value);
+			showNRows(table, this.value);
 		});
 
 		document.querySelector("#distrib select").addEventListener("change", function(){
@@ -30,5 +29,26 @@ window.onload = function(){
 		});
 
 
-	})();
+
+	/*document.querySelector('#row0 td:last-child').onclick = function(){
+		document.querySelector('#row0 td:first-child').click();
+	}*/
+}
+
+function addEventHandlers(table){
+	var titles = table.querySelectorAll('tr:not(.table_header) span');
+	for(var el of titles){
+		el.onclick = function(){
+			alert(this.innerText + " clicked");
+		}
+	}
+}
+
+function addChartsHandlers(table){
+	var charts = table.querySelectorAll('tr:not(.table_header) td:last-child');
+	for(var el of charts){
+		el.onclick = function(){
+			this.parentNode.querySelector('span').click();
+		}
+	}
 }
